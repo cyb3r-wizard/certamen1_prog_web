@@ -1,0 +1,8 @@
+GET https://49s7y6-3000.csb.app/api/reminders HTTP/1.1
+
+###
+
+GET https://49s7y6-3000.csb.app/api/reminders HTTP/1.1
+X-Authorization: abc123
+
+###
