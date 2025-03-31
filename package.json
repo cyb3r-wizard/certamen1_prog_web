@@ -1,14 +1,16 @@
 {
-  "name": "nodejs-sandbox",
+  "name": "crud-ev1-torneria",
   "version": "1.0.0",
-  "description": "",
+  "description": "API REST que permita crear, listar, modificar y borrar recordatorios utilizando Node y Express.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node --watch index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Ives van Hoorne",
-  "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {}
+  "author": "Mario H. Tornería R.",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
 }
