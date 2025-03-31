@@ -11,7 +11,7 @@ server.use(cors({ origin: "*" }));
 server.use("/api", router);
 
 server.get("/", (req, res) => {
-  res.json({ message: "Rutas: /login" });
+  res.json({ message: "Rutas: /api/login" });
 });
 
 server.listen(PORT, () => {
