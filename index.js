@@ -11,6 +11,17 @@ export const users = [
   },
 ];
 
+const init = `
+<h1>CERT 1</h1>
+<ul>
+  <li>
+    <a href="https://49s7y6-3000.csb.app/api/login">LOGIN</a>
+  </li>
+  <li>
+    <a href="https://49s7y6-3000.csb.app/api/auth/reminders">RECORDATORIOS</a>
+  </li>
+</ul>`;
+
 const PORT = 3000;
 const server = express();
 server.use(express.json());
@@ -19,7 +30,7 @@ server.use(cors({ origin: "*" }));
 server.use("/api", router);
 
 server.get("/", (req, res) => {
-  res.json({ message: "Rutas: /api/login" });
+  res.send(init);
 });
 
 server.listen(PORT, (error) => {
