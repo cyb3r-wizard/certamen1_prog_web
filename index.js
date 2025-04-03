@@ -6,7 +6,7 @@ export const users = [
   {
     name: "admin",
     username: "admin",
-    password: "admin123",
+    password: "admin123", //certamen123
     token: "abc123",
   },
 ];
