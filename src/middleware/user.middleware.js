@@ -1,8 +1,8 @@
-import scrypt from "node:crypto";
 import { users } from "../../index.js";
 
 export const userMiddleware = (req, res, next) => {
-  const no = `<h1>Permiso Denegado >:( </h1>`;
+  const no = `<h1> Permiso Denegado >:( </h1>`;
+
   const tokenAuthorization = req.get("X-Authorization");
   const usuario = users.find((usuario) => usuario.token === tokenAuthorization);
 

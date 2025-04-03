@@ -2,7 +2,7 @@ import { Router } from "express";
 const reminderRouter = Router();
 
 reminderRouter.get("/", (req, res) => {
-  res.json({ message: "AQUI SE MOSTRARÁN LAS TAREAS" });
+  res.json({ message: "AUTORIZADO: AQUI SE MOSTRARÁN LAS TAREAS" });
 });
 
 reminderRouter.post("/", (req, res) => {
