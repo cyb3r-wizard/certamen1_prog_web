@@ -1,20 +1,17 @@
 {
     "users":[
         {
-            "username":"admin",
-            "name":"Admin X. Adminiculo Administrator",
-            "password":"191baf20ad2e1527850be81908f1c60a618e4a6e1de9544e24ab0155511d6653a89a2c5e85c78d1506cf0d2f8791f583e9c9c0cb264fd91461ee47283e928dd2"
+            "username":"administrator",
+            "name":"SANDBOX",
+            "password":"11166b406a6b0eb1acd42f480667cc15:d0648ce5840cb954d8006a3d566825703bc7c1943eb222a06dc6f4e3b866df7be60288e81575d5517a695597fea468d9536054b2ec2d3775a10a06f4be7b43a9",
+            "token":""
             
-        },
-        {
-            "username":"admin2",
-            "name":"Admin 2X. Adminiculo Administrator",
-            "password":"Test123."
         },
         {
             "username": "admin",
             "name": "Gustavo Alfredo Marín Sáez",
-            "password":"1b6ce880ac388eb7fcb6bcaf95e20083:341dfbbe86013c940c8e898b437aa82fe575876f2946a2ad744a0c51501c7dfe6d7e5a31c58d2adc7a7dc4b87927594275ca235276accc9f628697a4c00b4e01"
+            "password":"1b6ce880ac388eb7fcb6bcaf95e20083:341dfbbe86013c940c8e898b437aa82fe575876f2946a2ad744a0c51501c7dfe6d7e5a31c58d2adc7a7dc4b87927594275ca235276accc9f628697a4c00b4e01",
+            "token":""
         }
     ]
 }

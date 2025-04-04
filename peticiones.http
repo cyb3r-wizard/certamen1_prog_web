@@ -11,6 +11,6 @@ POST https://49s7y6-3000.csb.app/api/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "username":"admin",
+    "username":"administrator",
     "password":"certamen123"
 }

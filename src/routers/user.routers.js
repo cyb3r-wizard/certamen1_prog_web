@@ -6,11 +6,11 @@ const users = database.users;
 
 let salt16 = randomBytes(16).toString("hex");
 
-async function hashPsw(password) {
+async function hashPsw(password, salt) {
   return new Promise((resolve, reject) => {
-    crypto.scrypt(password, salt16, 64, (err, derivedKey) => {
+    crypto.scrypt(password, salt, 64, (err, derivedKey) => {
       if (err) reject(err);
-      resolve(`${salt16}:${derivedKey.toString("hex")}`);
+      resolve(`${salt}:${derivedKey.toString("hex")}`);
     });
   });
 }
@@ -25,17 +25,19 @@ userRouter.get("/", (req, res) => {
 userRouter.post("/", async (req, res) => {
   try {
     const { username, password } = req.body;
-    const hidden = await hashPsw(password);
+    let isPsw = users.find((user) => user.username === username);
+    const [salt, hash] = isPsw.password.split(":");
+    crypto.scrypt(password, salt, 64, (error, derivedKey) => {
+      if (error) return res.send(error);
+      if (derivedKey.toString("hex") != hash) {
+        res.status(403).json({ message: "Credenciales inválidas" });
+      }
+    });
 
-    let isPsw = users.find(
-      (user) => /*user.password === password && */ user.username === username
-    );
     if (!isPsw) {
       res.status(403).json({ message: "Credenciales inválidas" });
     }
-    isPsw.password = hidden;
-    console.log(isPsw);
-    console.log(users);
+
     res.json({
       message: `NAME ${isPsw.name}, USERNAME: ${isPsw.username}`,
     });

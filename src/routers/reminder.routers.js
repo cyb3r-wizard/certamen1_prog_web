@@ -1,20 +1,20 @@
 import { Router } from "express";
 const reminderRouter = Router();
 
-reminderRouter.get("/", (req, res) => {
+reminderRouter.get("reminders", (req, res) => {
   res.json({ message: "AUTORIZADO: AQUI SE MOSTRARÁN LAS TAREAS" });
 });
 
-reminderRouter.post("/", (req, res) => {
+reminderRouter.post("reminders", (req, res) => {
   res.json({ message: "XAO PESCAO" });
 });
 
-reminderRouter.patch("/:id", (req, res) => {
+reminderRouter.patch("reminders/:id", (req, res) => {
   const { id } = req.params;
   res.json({ message: `Has ingresado el id: ${id} ` });
 });
 
-reminderRouter.delete("/:id", (req, res) => {
+reminderRouter.delete("reminders/:id", (req, res) => {
   const { id } = req.params;
   res.json({ message: `Has borrado el id ${id}` });
 });
