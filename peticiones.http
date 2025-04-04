@@ -8,12 +8,11 @@ X-Authorization: abc123
 ###
 
 POST https://49s7y6-3000.csb.app/api/login HTTP/1.1
-Content-Type: "application/json"
+Content-Type: application/json
 
 {
-    "username":"Testeando",
-    "password":"test123."
+    "username":"admin",
+    "password":"Test123."
 }
-
 
 ###
