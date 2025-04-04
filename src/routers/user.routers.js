@@ -18,15 +18,19 @@ userRouter.post("/", (req, res) => {
     console.log(req.body);
     const { username, password } = req.body;
     //hashear password antes de consultar.
+    console.log(username);
+    console.log(password);
+    /* 
     let isPsw = users.find((user) => user.password === password);
 
     if (!isPsw) {
       res.json({ message: "Credenciales inválidas" });
     }
+*/
 
-    res.json({ message: "Sesión iniciada, " + hola });
+    res.json({ message: "Sesión iniciada, " + username });
   } catch (err) {
-    res.json({ error: err });
+    res.status(403).json({ message: "" + err });
   }
 });
 
