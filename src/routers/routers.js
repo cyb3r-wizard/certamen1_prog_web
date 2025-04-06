@@ -5,7 +5,7 @@ import reminderRouter from "./reminder.routers.js";
 
 const router = Router();
 
-router.use("/login", userRouter);
-router.use("/auth", userMiddleware, reminderRouter);
+router.use("/auth/login", userRouter);
+router.use("/reminders", userMiddleware, reminderRouter);
 
 export default router;

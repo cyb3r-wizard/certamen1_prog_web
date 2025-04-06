@@ -16,24 +16,38 @@ userRouter.get("/", (req, res) => {
 userRouter.post("/", async (req, res) => {
   try {
     const { username, password } = req.body;
-    let isPsw = users.find((user) => user.username === username);
-    const [salt, hash] = isPsw.password.split(":");
-    crypto.scrypt(password, salt, 64, (error, derivedKey) => {
-      if (error) return res.send(error);
-      if (derivedKey.toString("hex") != hash) {
-        res.status(403).json({ message: "Credenciales inválidas" });
-      }
-    });
 
-    if (!isPsw) {
-      res.status(403).json({ message: "Credenciales inválidas" });
+    if (!username || !password) {
+      return res
+        .status(400)
+        .json({ message: "Formato incorrecto de petición" });
     }
 
-    res.json({
-      message: `NAME ${isPsw.name}, USERNAME: ${isPsw.username}`,
+    let isPsw = users.find((user) => user.username === username);
+
+    if (!isPsw) {
+      return res
+        .status(401)
+        .json({ message: "Credenciales inválidas. User Not Found" });
+    }
+
+    const [salt, hash] = isPsw.password.split(":");
+    const derivedKey = await crypto.scryptSync(password, salt, 64);
+    if (derivedKey.toString("hex") !== hash) {
+      return res
+        .status(401)
+        .json({ message: "Credenciales inválidas. Password incorrecto" });
+    }
+
+    let token = randomBytes(48).toString("hex");
+
+    return res.json({
+      name: isPsw.name,
+      username: isPsw.username,
+      token: token,
     });
   } catch (err) {
-    res.status(403).json({ message: "" + err });
+    return res.status(403).json({ message: "ERROR " + err });
   }
 });
 
