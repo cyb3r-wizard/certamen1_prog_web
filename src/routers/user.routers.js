@@ -6,15 +6,6 @@ const users = database.users;
 
 let salt16 = randomBytes(16).toString("hex");
 
-async function hashPsw(password, salt) {
-  return new Promise((resolve, reject) => {
-    crypto.scrypt(password, salt, 64, (err, derivedKey) => {
-      if (err) reject(err);
-      resolve(`${salt}:${derivedKey.toString("hex")}`);
-    });
-  });
-}
-
 userRouter.get("/", (req, res) => {
   users.map((user) => {
     user.token = salt16.toString("hex");
